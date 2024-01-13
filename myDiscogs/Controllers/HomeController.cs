@@ -1,4 +1,5 @@
 ﻿using myDiscogs.DiscogsApi;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,14 @@ namespace myDiscogs.Controllers
         public ActionResult Index()
         {
             var client = new DiscogsClient();
-            var value = client.GetCollectionValueAsync();
+            //var value = client.GetCollectionValue();
             //var collection = client.GetCollectionAsync();
             //var inventory = client.GetInventoryAsync();
-            //var wantlist = client.GetWantListAsync();
+            var wantlist = client.GetWantList();
             //var orders = client.GetOrdersAsync();
+
+
+
             return View();
         }
 
