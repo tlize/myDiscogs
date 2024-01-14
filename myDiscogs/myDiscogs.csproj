@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CollectionsController.cs" />
     <Compile Include="Controllers\CollectionValuesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WantsController.cs" />
@@ -137,6 +138,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CollectionValue.cs" />
+    <Compile Include="Models\Collection\Artist.cs" />
+    <Compile Include="Models\Collection\BasicInformation.cs" />
+    <Compile Include="Models\Collection\Format.cs" />
+    <Compile Include="Models\Collection\Label.cs" />
+    <Compile Include="Models\Collection\PaginatedCollection.cs" />
+    <Compile Include="Models\Collection\Pagination.cs" />
+    <Compile Include="Models\Collection\Release.cs" />
+    <Compile Include="Models\Collection\Urls.cs" />
     <Compile Include="Models\Wantlist\Artist.cs" />
     <Compile Include="Models\Wantlist\BasicInformation.cs" />
     <Compile Include="Models\Wantlist\Format.cs" />
@@ -208,6 +217,11 @@
     <Content Include="Views\Wants\Details.cshtml" />
     <Content Include="Views\Wants\Edit.cshtml" />
     <Content Include="Views\Wants\Index.cshtml" />
+    <Content Include="Views\Collections\Create.cshtml" />
+    <Content Include="Views\Collections\Delete.cshtml" />
+    <Content Include="Views\Collections\Details.cshtml" />
+    <Content Include="Views\Collections\Edit.cshtml" />
+    <Content Include="Views\Collections\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

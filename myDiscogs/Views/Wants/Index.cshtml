@@ -41,6 +41,11 @@
 
 @foreach (var item in Model) {
 
+    var releaseArtist = item.BasicInformation.Artists[0].Name.Replace(" ", "-");
+    var releaseTitle = item.BasicInformation.Title.Replace(" ", "-");
+    var releaseId = item.BasicInformation.Id;
+    var releasePage = "https://www.discogs.com/release/" + releaseId + "-" + releaseArtist + "-" + releaseTitle;
+
     var format = item.BasicInformation.Formats[0].Name;
     foreach (var description in item.BasicInformation.Formats[0].Descriptions)
     {
@@ -68,13 +73,10 @@
             styles += ", " + item.BasicInformation.Styles[i];
         }
     }
-    var discogsPage = "https://www.discogs.com/release/" + item.BasicInformation.Id
-        + "-" + item.BasicInformation.Artists[0].Name.Replace(" ", "-") + "-"
-        + item.BasicInformation.Title.Replace(" ", "-");
 
     <tr>
         <td>
-            <a href="@discogsPage" target="_blank" title="Discogs Release Page"><img src="@item.BasicInformation.Thumb" alt="@item.BasicInformation.Title"></a>
+            <a href="@releasePage" target="_blank" title="Discogs Release Page"><img src="@item.BasicInformation.Thumb" alt="@item.BasicInformation.Title"></a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.BasicInformation.Artists[0].Name)

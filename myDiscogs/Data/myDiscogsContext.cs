@@ -21,8 +21,8 @@ namespace myDiscogs.Data
 
         public System.Data.Entity.DbSet<myDiscogs.Models.CollectionValue> CollectionValues { get; set; }
 
-        public System.Data.Entity.DbSet<myDiscogs.Models.Wantlist.PaginatedWantlist> PaginatedWantlists { get; set; }
-
         public System.Data.Entity.DbSet<myDiscogs.Models.Wantlist.Want> Wants { get; set; }
+
+        public System.Data.Entity.DbSet<myDiscogs.Models.Collection.Release> Releases { get; set; }
     }
 }
