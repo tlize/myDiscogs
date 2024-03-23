@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.WebPages;
 using myDiscogs.Data;
 using myDiscogs.DiscogsApi;
 using myDiscogs.Models.Collection;
@@ -22,7 +23,9 @@ namespace myDiscogs.Controllers
         // GET: Collections
         public ActionResult Index()
         {
-            var collectionData = client.GetCollection();
+            int page = (Request.QueryString["page"] != null && Request.QueryString["page"] != string.Empty) ? Request.QueryString["page"].AsInt() : 1;
+
+            var collectionData = client.GetCollection(page);
             var collection = JsonConvert.DeserializeObject<PaginatedCollection>(collectionData);
 
             return View(collection);

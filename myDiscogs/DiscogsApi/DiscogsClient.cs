@@ -20,9 +20,9 @@ namespace myDiscogs.DiscogsApi
             return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/wants");
         }
 
-        public string GetCollection()
+        public string GetCollection(int page)
         {
-            return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/collection/folders/1/releases?sort=artist");
+            return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/collection/folders/1/releases?sort=artist&page=" + page);
         }
         
         public string GetInventory()
