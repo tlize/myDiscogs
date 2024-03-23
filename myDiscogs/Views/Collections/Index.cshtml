@@ -8,8 +8,14 @@
 <p>page @Model.Pagination.Page of @Model.Pagination.Pages</p>
 
 @*<p>
-    @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Create New", "Create")
 </p>*@
+
+@{
+    var totalPages = Model.Pagination.Pages;
+    var currentPage = Model.Pagination.Page;
+}
+
 
 <table class="table">
     <tr>
@@ -105,11 +111,37 @@
                 @styles
             </td>
             @*<td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>*@
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>*@
         </tr>
     }
 
 </table>
+
+<ul class="pagination">
+    @if (totalPages > 1)
+    {
+        if (currentPage > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", new { page = currentPage - 1 })">Previous  </a>
+            </li>
+        }
+
+        for (int i = 1; i <= totalPages; i++)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", new { page = i })">@i     </a>
+            </li>
+        }
+
+        if (currentPage < totalPages)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", new { page = currentPage + 1 })">Next</a>
+            </li>
+        }
+    }
+</ul>
