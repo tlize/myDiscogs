@@ -1,14 +1,15 @@
-﻿@model IEnumerable<myDiscogs.Models.Collection.Release>
+﻿@model myDiscogs.Models.Collection.PaginatedCollection
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>@Model.Pagination.Items items in collection</h2>
+<p>page @Model.Pagination.Page of @Model.Pagination.Pages</p>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 
 <table class="table">
     <tr>
@@ -37,12 +38,11 @@
         <th>
             Style
         </th>
-        <th></th>
+        @*<th></th>*@
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.Releases)
     {
-
         var releaseArtist = item.BasicInformation.Artists[0].Name.Replace(" ", "-");
         var releaseTitle = item.BasicInformation.Title.Replace(" ", "-");
         var releaseId = item.BasicInformation.Id;
@@ -104,11 +104,11 @@
             <td>
                 @styles
             </td>
-            <td>
+            @*<td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
+            </td>*@
         </tr>
     }
 

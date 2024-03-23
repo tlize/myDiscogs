@@ -25,7 +25,7 @@ namespace myDiscogs.Controllers
             var collectionData = client.GetCollection();
             var collection = JsonConvert.DeserializeObject<PaginatedCollection>(collectionData);
 
-            return View(collection.Releases);
+            return View(collection);
         }
 
         // GET: Collections/Details/5
