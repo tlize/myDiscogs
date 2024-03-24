@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
+using System.Web.WebPages;
 using myDiscogs.Data;
 using myDiscogs.DiscogsApi;
 using myDiscogs.Models.Collection;
@@ -23,10 +24,12 @@ namespace myDiscogs.Controllers
         // GET: Listings
         public ActionResult Index()
         {
-            var soldItemsData = client.GetSoldItems();
+            int page = (Request.QueryString["page"] != null && Request.QueryString["page"] != string.Empty) ? Request.QueryString["page"].AsInt() : 1;
+
+            var soldItemsData = client.GetSoldItems(page);
             var soldItems = JsonConvert.DeserializeObject<PaginatedItems>(soldItemsData);
 
-            return View(soldItems.Listings);
+            return View(soldItems);
         }
 
         // GET: Listings/Details/5

@@ -1,4 +1,4 @@
-﻿@model myDiscogs.Models.Inventory.PaginatedItems
+@model myDiscogs.Models.Inventory.PaginatedItems
 
 @{
     ViewBag.Title = "Index";
@@ -6,7 +6,7 @@
     var currentPage = Model.Pagination.Page;
 }
 
-<h2>@Model.Pagination.Items sold items</h2>
+<h2>@Model.Pagination.Items items for Sale</h2>
 <p>page @Model.Pagination.Page of @Model.Pagination.Pages</p>
 
 @*<p>
@@ -64,7 +64,7 @@
                 @year
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price.Value)€
+                @Html.DisplayFor(modelItem => item.Price.Value)�
             </td>
         </tr>
     }

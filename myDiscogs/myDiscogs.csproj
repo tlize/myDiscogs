@@ -131,6 +131,7 @@
     <Compile Include="Controllers\CollectionValuesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListingsController.cs" />
+    <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\WantsController.cs" />
     <Compile Include="Data\myDiscogsContext.cs" />
     <Compile Include="DiscogsApi\DiscogsAuth.cs" />
@@ -242,6 +243,7 @@
     <Content Include="Views\Listings\Details.cshtml" />
     <Content Include="Views\Listings\Edit.cshtml" />
     <Content Include="Views\Listings\Index.cshtml" />
+    <Content Include="Views\Sales\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,7 +9,7 @@ namespace myDiscogs.Models.Inventory
     public class Listing
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("resource_url")]
         public string ResourceUrl { get; set; }
