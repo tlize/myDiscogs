@@ -22,7 +22,7 @@ namespace myDiscogs.DiscogsApi
 
         public string GetCollection(int page)
         {
-            return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/collection/folders/1/releases?sort=artist&page=" + page);
+            return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/collection/folders/1/releases?sort=added&sort_order=desc&page=" + page);
         }
         
         public string GetInventory()

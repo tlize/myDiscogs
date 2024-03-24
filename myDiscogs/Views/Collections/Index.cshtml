@@ -44,6 +44,9 @@
         <th>
             Style
         </th>
+        <th>
+            Added
+        </th>
         @*<th></th>*@
     </tr>
 
@@ -109,6 +112,9 @@
             </td>
             <td>
                 @styles
+            </td>
+            <td>
+                @item.DateAdded.ToString().Substring(0, 10)
             </td>
             @*<td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
