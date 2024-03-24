@@ -25,9 +25,14 @@ namespace myDiscogs.DiscogsApi
             return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/collection/folders/1/releases?sort=added&sort_order=desc&page=" + page);
         }
         
-        public string GetInventory()
+        public string GetItemsForSale()
         {
-            return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/inventory");
+            return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/inventory?status=For Sale&sort=price&sort_order=desc");
+        }
+
+        public string GetSoldItems()
+        {
+            return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/inventory?status=Sold&sort=price&sort_order=desc");
         }
 
         public string GetOrders()

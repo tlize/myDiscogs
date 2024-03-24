@@ -130,6 +130,7 @@
     <Compile Include="Controllers\CollectionsController.cs" />
     <Compile Include="Controllers\CollectionValuesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ListingsController.cs" />
     <Compile Include="Controllers\WantsController.cs" />
     <Compile Include="Data\myDiscogsContext.cs" />
     <Compile Include="DiscogsApi\DiscogsAuth.cs" />
@@ -146,6 +147,20 @@
     <Compile Include="Models\Collection\Pagination.cs" />
     <Compile Include="Models\Collection\Release.cs" />
     <Compile Include="Models\Collection\Urls.cs" />
+    <Compile Include="Models\Inventory\Community.cs" />
+    <Compile Include="Models\Inventory\Image.cs" />
+    <Compile Include="Models\Inventory\Listing.cs" />
+    <Compile Include="Models\Inventory\OriginalPrice.cs" />
+    <Compile Include="Models\Inventory\OriginalShippingPrice.cs" />
+    <Compile Include="Models\Inventory\PaginatedItems.cs" />
+    <Compile Include="Models\Inventory\Pagination.cs" />
+    <Compile Include="Models\Inventory\Price.cs" />
+    <Compile Include="Models\Inventory\Release.cs" />
+    <Compile Include="Models\Inventory\Seller.cs" />
+    <Compile Include="Models\Inventory\ShippingPrice.cs" />
+    <Compile Include="Models\Inventory\Stats.cs" />
+    <Compile Include="Models\Inventory\Urls.cs" />
+    <Compile Include="Models\Inventory\User.cs" />
     <Compile Include="Models\Wantlist\Artist.cs" />
     <Compile Include="Models\Wantlist\BasicInformation.cs" />
     <Compile Include="Models\Wantlist\Format.cs" />
@@ -222,6 +237,11 @@
     <Content Include="Views\Collections\Details.cshtml" />
     <Content Include="Views\Collections\Edit.cshtml" />
     <Content Include="Views\Collections\Index.cshtml" />
+    <Content Include="Views\Listings\Create.cshtml" />
+    <Content Include="Views\Listings\Delete.cshtml" />
+    <Content Include="Views\Listings\Details.cshtml" />
+    <Content Include="Views\Listings\Edit.cshtml" />
+    <Content Include="Views\Listings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

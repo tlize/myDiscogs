@@ -24,5 +24,7 @@ namespace myDiscogs.Data
         public System.Data.Entity.DbSet<myDiscogs.Models.Wantlist.Want> Wants { get; set; }
 
         public System.Data.Entity.DbSet<myDiscogs.Models.Collection.Release> Releases { get; set; }
+
+        public System.Data.Entity.DbSet<myDiscogs.Models.Inventory.Listing> Listings { get; set; }
     }
 }
