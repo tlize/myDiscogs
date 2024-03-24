@@ -7,7 +7,10 @@
 }
 
 <h2>@Model.Pagination.Items sold items</h2>
-<p>page @Model.Pagination.Page of @Model.Pagination.Pages</p>
+@if (totalPages > 1)
+{
+    <p>page @Model.Pagination.Page of @Model.Pagination.Pages</p>
+}
 
 @*<p>
         @Html.ActionLink("Create New", "Create")

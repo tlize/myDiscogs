@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.WebPages;
 using myDiscogs.Data;
 using myDiscogs.DiscogsApi;
 using myDiscogs.Models.Wantlist;
@@ -21,10 +22,12 @@ namespace myDiscogs.Controllers
         // GET: Wants
         public ActionResult Index()
         {
-            var wantlistData = client.GetWantList();
+            int page = (Request.QueryString["page"] != null && Request.QueryString["page"] != string.Empty) ? Request.QueryString["page"].AsInt() : 1;
+
+            var wantlistData = client.GetWantList(page);
             var wantlist = JsonConvert.DeserializeObject<PaginatedWantlist>(wantlistData);
 
-            return View(wantlist.Wants);
+            return View(wantlist);
         }
 
         // GET: Wants/Details/5

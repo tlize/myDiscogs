@@ -15,9 +15,9 @@ namespace myDiscogs.DiscogsApi
             return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/collection/value");
         }
 
-        public string GetWantList()
+        public string GetWantList(int page)
         {
-            return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/wants");
+            return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/wants?page=" + page);
         }
 
         public string GetCollection(int page)

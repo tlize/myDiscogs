@@ -6,8 +6,11 @@
     var currentPage = Model.Pagination.Page;
 }
 
-<h2>@Model.Pagination.Items items for Sale</h2>
-<p>page @Model.Pagination.Page of @Model.Pagination.Pages</p>
+<h2>@Model.Pagination.Items items for sale</h2>
+@if (totalPages > 1)
+{
+    <p>page @Model.Pagination.Page of @Model.Pagination.Pages</p>
+}
 
 @*<p>
         @Html.ActionLink("Create New", "Create")
