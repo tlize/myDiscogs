@@ -131,6 +131,7 @@
     <Compile Include="Controllers\CollectionValuesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListingsController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\WantsController.cs" />
     <Compile Include="Data\myDiscogsContext.cs" />
@@ -162,6 +163,24 @@
     <Compile Include="Models\Inventory\Stats.cs" />
     <Compile Include="Models\Inventory\Urls.cs" />
     <Compile Include="Models\Inventory\User.cs" />
+    <Compile Include="Models\Orders\Buyer.cs" />
+    <Compile Include="Models\Orders\Converted.cs" />
+    <Compile Include="Models\Orders\Fee.cs" />
+    <Compile Include="Models\Orders\Feedback.cs" />
+    <Compile Include="Models\Orders\ForBuyer.cs" />
+    <Compile Include="Models\Orders\Item.cs" />
+    <Compile Include="Models\Orders\Order.cs" />
+    <Compile Include="Models\Orders\PaginatedOrders.cs" />
+    <Compile Include="Models\Orders\Pagination.cs" />
+    <Compile Include="Models\Orders\Price.cs" />
+    <Compile Include="Models\Orders\Release.cs" />
+    <Compile Include="Models\Orders\Seller.cs" />
+    <Compile Include="Models\Orders\Shipping.cs" />
+    <Compile Include="Models\Orders\Tax.cs" />
+    <Compile Include="Models\Orders\TaxableAmount.cs" />
+    <Compile Include="Models\Orders\Total.cs" />
+    <Compile Include="Models\Orders\Tracking.cs" />
+    <Compile Include="Models\Orders\Urls.cs" />
     <Compile Include="Models\Wantlist\Artist.cs" />
     <Compile Include="Models\Wantlist\BasicInformation.cs" />
     <Compile Include="Models\Wantlist\Format.cs" />
@@ -244,6 +263,11 @@
     <Content Include="Views\Listings\Edit.cshtml" />
     <Content Include="Views\Listings\Index.cshtml" />
     <Content Include="Views\Sales\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

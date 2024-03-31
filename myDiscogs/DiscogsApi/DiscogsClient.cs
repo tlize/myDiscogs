@@ -35,9 +35,9 @@ namespace myDiscogs.DiscogsApi
             return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/inventory?status=Sold&sort=price&sort_order=desc&page=" + page);
         }
 
-        public string GetOrders()
+        public string GetOrders(int page)
         {
-            return GetDiscogsData("marketplace/orders");
+            return GetDiscogsData("marketplace/orders?sort=created&sort_order=desc&page=" + page);
         }
 
         public string GetDiscogsData(string endpoint)
