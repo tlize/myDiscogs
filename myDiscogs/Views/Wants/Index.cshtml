@@ -2,12 +2,10 @@
 
 @{
     ViewBag.Title = "Index";
-    var totalPages = Model.Pagination.Pages;
-    var currentPage = Model.Pagination.Page;
 }
 
 <h2>@Model.Pagination.Items items I want</h2>
-@if (totalPages > 1)
+@if (Model.Pagination.Pages > 1)
 {
     <p>page @Model.Pagination.Page of @Model.Pagination.Pages</p>
 }
@@ -81,7 +79,7 @@
             }
         }
 
-        <tr>
+        <tr class="align-middle">
             <td>
                 <a href="@releasePage" target="_blank" title="Discogs Release Page"><img src="@item.BasicInformation.Thumb" alt="@item.BasicInformation.Title"></a>
             </td>
@@ -119,28 +117,9 @@
 
 </table>
 
-<ul class="pagination">
-    @if (totalPages > 1)
+@{ 
+    if (Model.Pagination.Pages > 1)
     {
-        if (currentPage > 1)
-        {
-            <li class="page-item">
-                <a class="page-link" href="@Url.Action("Index", new { page = currentPage - 1 })">Previous  </a>
-            </li>
-        }
-
-        for (int i = 1; i <= totalPages; i++)
-        {
-            <li class="page-item">
-                <a class="page-link" href="@Url.Action("Index", new { page = i })">@i     </a>
-            </li>
-        }
-
-        if (currentPage < totalPages)
-        {
-            <li class="page-item">
-                <a class="page-link" href="@Url.Action("Index", new { page = currentPage + 1 })">Next</a>
-            </li>
-        }
+        @Html.Partial("_Pagination")
     }
-</ul>
+}
