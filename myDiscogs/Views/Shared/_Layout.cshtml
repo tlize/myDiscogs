@@ -25,11 +25,10 @@
     </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year tlize &#x1F60E</p>
-        </footer>
     </div>
+    <footer class="footer sticky-bottom">
+        <p>&copy; @DateTime.Now.Year tlize</p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

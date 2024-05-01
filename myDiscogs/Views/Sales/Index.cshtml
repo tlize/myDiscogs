@@ -13,7 +13,7 @@
 @*<p>
         @Html.ActionLink("Create New", "Create")
     </p>*@
-<table class="table">
+<table class="table table-hover table-striped">
     <tr>
         <th></th>
         <th>
@@ -35,16 +35,20 @@
             Year
         </th>
         <th>
+            Condition
+        </th>
+        <th>
             Price sold
         </th>
     </tr>
 
     @foreach (var item in Model.Listings)
     {
+        var releasePage = "https://www.discogs.com/release/" + item.Release.Id + "-" + item.Release.Artist.Replace(" ", "-") + "-" + item.Release.Title.Replace(" ", "-");
         var year = item.Release.Year.ToString() == "0" ? "N/A" : item.Release.Year.ToString();
         <tr class="align-middle">
             <td>
-                <img src="@item.Release.Thumbnail" />
+                <a href="@releasePage" target="_blank" title="Discogs Release Page"><img src="@item.Release.Thumbnail" alt="@item.Release.Title"></a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Release.Artist)
@@ -63,6 +67,9 @@
             </td>
             <td>
                 @year
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Condition).ToString().Split('(')[1].Trim(')')
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price.Value)€
