@@ -47,8 +47,7 @@
     {
 
         
-        var releasePage = "https://www.discogs.com/release/" + item.BasicInformation.Id + "-"
-            +item.BasicInformation.Artists[0].Name.Replace(" ", "-") + "-" + item.BasicInformation.Title.Replace(" ", "-");
+        var releasePage = "https://www.discogs.com/sell/release/" + item.BasicInformation.Id;
         var year = item.BasicInformation.Year.ToString() == "0" ? "N/A" : item.BasicInformation.Year.ToString();
 
         var format = item.BasicInformation.Formats[0].Name;

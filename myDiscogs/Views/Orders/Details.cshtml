@@ -7,71 +7,23 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Order</h4>
+    <h4>Order @Model.Id</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ResourceUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ResourceUrl)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Uri)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Uri)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MessagesUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MessagesUrl)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Created)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Created)
+            @Html.DisplayFor(model => model.Created).ToString().Substring(0, 10)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastActivity)
+            @Html.DisplayNameFor(model => model.Buyer)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LastActivity)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Total)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Total)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Shipping)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Shipping)
+            @Html.DisplayFor(model => model.Buyer.Username)
         </dd>
 
         <dt>
@@ -83,40 +35,26 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Archived)
+            @Html.DisplayNameFor(model => model.Total)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Archived)
+            @Html.DisplayFor(model => model.Total.Value)€
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AdditionalInstructions)
+            @Html.DisplayNameFor(model => model.Items)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AdditionalInstructions)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Fee)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Fee)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tracking)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tracking)
-        </dd>
+        @foreach (var item in Model.Items)
+        {
+            <dd>
+                @item.Release.Description - @item.Price.Value€
+            </dd>
+        }
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

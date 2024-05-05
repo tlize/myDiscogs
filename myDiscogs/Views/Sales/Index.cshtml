@@ -38,17 +38,18 @@
             Condition
         </th>
         <th>
-            Price sold
+            Price
         </th>
     </tr>
 
     @foreach (var item in Model.Listings)
     {
-        var releasePage = "https://www.discogs.com/release/" + item.Release.Id + "-" + item.Release.Artist.Replace(" ", "-") + "-" + item.Release.Title.Replace(" ", "-");
+        var itemPage = "https://www.discogs.com/sell/item/" + item.Id;
         var year = item.Release.Year.ToString() == "0" ? "N/A" : item.Release.Year.ToString();
+
         <tr class="align-middle">
             <td>
-                <a href="@releasePage" target="_blank" title="Discogs Release Page"><img src="@item.Release.Thumbnail" alt="@item.Release.Title"></a>
+                <a href="@itemPage" target="_blank" title="I want it now !"><img src="@item.Release.Thumbnail" alt="@item.Release.Title"></a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Release.Artist)

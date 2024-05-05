@@ -40,6 +40,11 @@ namespace myDiscogs.DiscogsApi
             return GetDiscogsData("marketplace/orders?sort=created&sort_order=desc&page=" + page);
         }
 
+        public string GetOrder(string orderNum)
+        {
+            return GetDiscogsData("marketplace/orders/" + orderNum);
+        }
+
         public string GetDiscogsData(string endpoint)
         {
             BaseAddress = new Uri("https://api.discogs.com/");

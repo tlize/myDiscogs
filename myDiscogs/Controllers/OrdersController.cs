@@ -35,15 +35,8 @@ namespace myDiscogs.Controllers
         // GET: Orders/Details/5
         public ActionResult Details(string id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order order = db.Orders.Find(id);
-            if (order == null)
-            {
-                return HttpNotFound();
-            }
+            var orderData = client.GetOrder(id);
+            var order = JsonConvert.DeserializeObject<Order>(orderData);
             return View(order);
         }
 
