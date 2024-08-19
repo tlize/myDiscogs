@@ -24,7 +24,7 @@ namespace myDiscogs.Controllers
         // GET: Orders
         public ActionResult Index()
         {
-            int page = (Request.QueryString["page"] != null && Request.QueryString["page"] != string.Empty) ? Request.QueryString["page"].AsInt() : 1;
+           var page = (Request.QueryString["page"] != null && Request.QueryString["page"] != string.Empty) ? Request.QueryString["page"].AsInt() : 1;
 
             var ordersData = client.GetOrders(page);
             var orders = JsonConvert.DeserializeObject<PaginatedOrders>(ordersData);

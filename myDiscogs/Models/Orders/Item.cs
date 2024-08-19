@@ -10,7 +10,7 @@ namespace myDiscogs.Models.Orders
     public class Item
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("price")]
         public Price Price { get; set; }
