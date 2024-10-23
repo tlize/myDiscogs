@@ -8,8 +8,9 @@ using System.Web;
 
 namespace myDiscogs.DiscogsApi
 {
-    public class DiscogsClient : HttpClient
+    public class DiscogsClient
     {
+        private HttpClient _httpClient;
         public string GetCollectionValue()
         {
             return GetDiscogsData("users/" + DiscogsAuth.USER_NAME + "/collection/value");
@@ -47,10 +48,7 @@ namespace myDiscogs.DiscogsApi
 
         public string GetDiscogsData(string endpoint)
         {
-            BaseAddress = new Uri("https://api.discogs.com/");
-            SetDiscogsAuthHeaders();
-
-            var response = GetAsync(endpoint).Result;
+            var response = _httpClient.GetAsync(endpoint).Result;
             string result = response.Content.ReadAsStringAsync().Result;
             return result;
         }
@@ -72,16 +70,19 @@ namespace myDiscogs.DiscogsApi
 
         private void SetDiscogsAuthHeaders()
         {
-            DefaultRequestHeaders.Add("Authorization",
+            _httpClient.DefaultRequestHeaders.Add("Authorization",
                     "OAuth oauth_consumer_key=\"" + DiscogsAuth.CONSUMER_KEY
                     + "\",oauth_token=\"" + DiscogsAuth.TOKEN
                     + "\",oauth_signature_method=\"PLAINTEXT\",oauth_timestamp=\"" + GetTimeStamp()
                     + "\",oauth_nonce=\"" + GetNonce()
                     + "\",oauth_version=\"1.0\",oauth_signature=\"" + DiscogsAuth.CONSUMER_SECRET + "%26" + DiscogsAuth.TOKEN_SECRET + "\""
                     );
-            DefaultRequestHeaders.Add("User-Agent", DiscogsAuth.USER_AGENT);
+            _httpClient.DefaultRequestHeaders.Add("User-Agent", DiscogsAuth.USER_AGENT);
         }
 
-        public DiscogsClient() { }
+        public DiscogsClient() {
+            _httpClient = new HttpClient { BaseAddress = new Uri("https://api.discogs.com/") };
+            SetDiscogsAuthHeaders();
+        }
     }
 }
